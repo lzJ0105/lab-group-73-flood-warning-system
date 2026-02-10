@@ -144,3 +144,25 @@ def test_rivers_with_station():
     assert len(rivers) == 2
     assert "River X" in rivers
     assert "River Y" in rivers
+
+
+from floodsystem.geo import stations_by_river
+from floodsystem.stationdata import build_station_list
+
+def test_stations_by_river():
+   stations=build_station_list()
+   my_dict=stations_by_river(stations)
+   #use river cam
+   ans={'Cam', 'Cambridge', 'Cambridge Baits Bite', 'Cambridge Jesus Lock', 'Dernford', 'Weston Bampfylde'}
+   assert all(x in ans for x in my_dict['River Cam'])
+  
+
+
+
+
+from floodsystem.geo import rivers_by_station_number
+
+def test_rivers_by_station_number():
+    stations=build_station_list()
+    my_lst=rivers_by_station_number(stations,1)
+    assert my_lst==[('Thames',55)]

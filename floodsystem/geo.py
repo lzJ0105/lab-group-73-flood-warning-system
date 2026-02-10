@@ -139,3 +139,36 @@ def rivers_with_station(stations):
             rivers.add(station.river)
             
     return rivers
+
+def stations_by_river(stations):
+    new_dict = {} #create a dictionary
+    for station in stations:
+        riv=station.river
+        sta=station
+        #check if river is in the dict
+        if riv in new_dict:
+            new_dict[riv].append(sta)
+        #if not
+        else:
+            new_dict.setdefault(riv,[]).append(sta)
+    return new_dict
+
+def rivers_by_station_number(stations,N):
+    list_num=[] #create a list to store the numbers of rivers
+    dict_names=stations_by_river(stations)
+    for key in dict_names:
+        a=(key, len(dict_names[key]))
+        list_num.append(a)
+    #sort the list
+    sorted_list=sorted(list_num, key=lambda x:x[1])
+    list_N=sorted_list[-N:]
+    for count in range(N+1,len(list_num)):
+        if list_num[-count]==list_num[-(count-1)]:
+            dict_N=sorted_list[-count:]
+        else:
+            break
+    return(list_N)
+    
+
+
+       

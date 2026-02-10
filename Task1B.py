@@ -21,7 +21,7 @@ def run():
     for entry in first_10:
         station = entry[0]
         dist = entry[1]
-        print(station.name, dist)
+        print(station.name, station.town,dist)  #edited, added 'station.town'
 
 
     # 5. Print the 10 furthest stations
@@ -33,7 +33,7 @@ def run():
     for entry in last_10:
         station = entry[0]
         dist = entry[1]
-        print(station.name, dist)
+        print(station.name, station.town, dist) #edited, added 'station.town' 
 
 
 if __name__ == "__main__":

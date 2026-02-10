@@ -1,5 +1,6 @@
 from floodsystem.stationdata import build_station_list
 from floodsystem.geo import rivers_with_station
+from floodsystem.geo import stations_by_river
 
 def run():
     """Demonstration for Task 1D"""
@@ -19,6 +20,19 @@ def run():
     
     for river in sorted_rivers[:10]:
         print(river)
+
+    my_dict=stations_by_river(stations)
+    river1='River Aire'
+    river2='River Cam'
+    river3='River Thames'
+    lst1=my_dict[river1]
+    lst2=my_dict[river2]
+    lst3=my_dict[river3]
+    print(sorted([station.name for station in lst1]))
+    print(sorted([station.name for station in lst2]))
+    print(sorted([station.name for station in lst3]))
+
+
 
 
 if __name__ == "__main__":
