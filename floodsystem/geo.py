@@ -6,7 +6,7 @@ geographical data.
 
 """
 
-from .utils import sorted_by_key  # noqa
+from .utils import sorted_by_key 
 from math import radians, cos, sin, asin, sqrt
 
 def haversine(coord1, coord2):
