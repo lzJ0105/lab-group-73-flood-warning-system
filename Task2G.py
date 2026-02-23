@@ -7,8 +7,8 @@ import datetime
 import matplotlib
 
 #the risk of a town depends on the riskest station.
-#relative value>1: increasing--severe(4), decreasing--high(3)
-#1>=relative value>0.5 moderate(2)
+#relative value>2: increasing--severe(4), decreasing--high(3)
+#2>=relative value>0.5 moderate(2)
 #relative value<=0.5 low(1)
 def warning_for_towns():
     stations=build_station_list()
@@ -23,7 +23,7 @@ def warning_for_towns():
     #severe and high
     risk34=stations_level_over_threshold(stations,2)
     
-    dt=4 #make prediction based on past 2 weeks
+    dt=4 #make prediction based on past 4 days
     for sta, rl in risk34:
         dates, levels = fetch_measure_levels(sta.measure_id, dt=datetime.timedelta(days=dt))
 
