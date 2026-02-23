@@ -28,7 +28,9 @@ def warning_for_towns():
         dates, levels = fetch_measure_levels(sta.measure_id, dt=datetime.timedelta(days=dt))
 
         if len(dates) > 0:
+            #print(levels)
             #print(sta.name)
+            #print(levels)
             poly, d0=polyfit(dates,levels,3)
             num=matplotlib.dates.date2num(dates)
             #print(num)

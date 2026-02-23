@@ -141,6 +141,9 @@ def fetch_measure_levels(measure_id, dt):
 
         # Append data
         dates.append(d)
-        levels.append(measure['value'])
+        if type(measure['value']) == float:
+            levels.append(measure['value'])
+        else:
+            levels.append(measure['value'][0])
 
     return dates, levels
