@@ -59,12 +59,25 @@ class MonitoringStation:
             
         return True
     
+    def relative_water_level(self):
+        if self.latest_level==None:
+            return None
+        if not self.typical_range_consistent:
+            return None
+        val=self.latest_level
+        low=self.typical_range[0]
+        high=self.typical_range[1]
+        return (val-low)/(high-low)
+
+    
 def inconsistent_typical_range_stations(stations):
     lst=[]
     for a in stations:
         if a.typical_range_consistent()==False:
             lst.append(a)
     return lst
+
+
 
 
 

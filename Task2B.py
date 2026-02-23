@@ -16,7 +16,7 @@ def run():
     print(f"Stations with relative water level > {tol}")
     print("------------------------------------------")
     
-    for entry in result_list[:10]:
+    for entry in result_list[:]:
         station = entry[0]
         level = entry[1]
         
