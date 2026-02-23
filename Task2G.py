@@ -21,9 +21,9 @@ def warning_for_towns():
 
     my_dic={}
     #severe and high
-    risk34=stations_level_over_threshold(stations,1)
+    risk34=stations_level_over_threshold(stations,2)
     
-    dt=14 #make prediction based on past 2 weeks
+    dt=4 #make prediction based on past 2 weeks
     for sta, rl in risk34:
         dates, levels = fetch_measure_levels(sta.measure_id, dt=datetime.timedelta(days=dt))
 
